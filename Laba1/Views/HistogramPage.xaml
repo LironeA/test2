@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:microchartsMaui="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
+             xmlns:vm="clr-namespace:Laba1.ViewModels"
+             x:Class="Laba1.Views.HistogramPage"
+             Title="Histogram">
+    <ContentPage.BindingContext>
+        <vm:HistogramViewModel />
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <StackLayout Padding="10" Spacing="20">
+            <Label Text="Initial Array Histogram" 
+                   FontSize="18" 
+                   HorizontalOptions="Center" />
+            <microchartsMaui:ChartView 
+                Chart="{Binding InitialChart}" 
+                WidthRequest="400" 
+                HeightRequest="400" />
+
+            <Label Text="Sorted Array Histogram" 
+                   FontSize="18" 
+                   HorizontalOptions="Center" />
+            <microchartsMaui:ChartView 
+                Chart="{Binding SortedChart}" 
+                WidthRequest="400" 
+                HeightRequest="400" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
