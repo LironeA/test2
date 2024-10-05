@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microcharts.Maui;
+using CommunityToolkit.Maui;
 
 namespace Laba1
 {
@@ -11,6 +12,7 @@ namespace Laba1
             builder
                 .UseMauiApp<App>()
                 .UseMicrocharts() // Додаємо підтримку Microcharts
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

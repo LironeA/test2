@@ -10,6 +10,8 @@ using System.Linq;
 using System.IO;
 using Microsoft.Maui.Storage;
 using System.Collections.Generic;
+using System.Threading;
+using CommunityToolkit.Maui.Storage;
 
 namespace Laba1.ViewModels
 {
@@ -114,6 +116,7 @@ namespace Laba1.ViewModels
             {
                 string input = NewArrayInput;
                 if (string.IsNullOrWhiteSpace(input))
+
                 {
                     await Application.Current.MainPage.DisplayAlert("Помилка", "Введіть числа.", "OK");
                     return;
@@ -126,7 +129,11 @@ namespace Laba1.ViewModels
                 }
 
                 // Збереження файлу
-                string filePath = Path.Combine(FileSystem.AppDataDirectory, "user_array.txt");
+
+                var folderPickerResult = await FolderPicker.Default.PickAsync();
+
+
+                string filePath = Path.Combine(folderPickerResult.Folder.Path, "user_array.txt");
                 await _fileService.SaveIntArrayToFileAsync(integers, filePath);
                 await Application.Current.MainPage.DisplayAlert("Успіх", $"Файл збережено за адресою:\n{filePath}", "OK");
             }

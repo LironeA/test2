@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:Laba1.ViewModels"
              x:Class="Laba1.Views.MainPage"
+             x:DataType="vm:MainViewModel"
              Title="Main Page">
     <ContentPage.BindingContext>
         <vm:MainViewModel />
@@ -51,7 +52,6 @@
                        Margin="10"
                        Placeholder="Write your integers here..."
                        Text="{Binding NewArrayInput}"
-                       Keyboard="Numeric"
                        HorizontalOptions="Center" />
 
                 <Button  WidthRequest="300" 
